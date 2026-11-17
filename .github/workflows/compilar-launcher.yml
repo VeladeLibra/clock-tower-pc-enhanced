@@ -1,0 +1,21 @@
+name: Verificar compilacao do launcher
+on:
+  push:
+    paths:
+      - 'LauncherUnico/**'
+      - '.github/workflows/compilar-launcher.yml'
+  pull_request:
+    paths:
+      - 'LauncherUnico/**'
+      - '.github/workflows/compilar-launcher.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Compilar fonte do launcher
+        run: dotnet build LauncherUnico/ClockTower_PC_Enhanced.csproj -c Release

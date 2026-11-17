@@ -1,0 +1,35 @@
+# Build outputs
+**/bin/
+**/obj/
+publicado/
+PublicacaoLauncherUnico/
+Saida/
+BACKUP*/
+Stage/
+Pacote_V16/
+*.log
+*.tmp
+*.bak
+
+# Jogos/imagens do usuário — não publicar
+*.iso
+*.cue
+*.bin
+*.chd
+*.img
+*.pbp
+*.mdf
+*.mds
+*.rom
+*.psxmod
+*.exe
+*.dll
+*.pdb
+*.zip
+*.7z
+*.rar
+
+# Dados locais
+settings.toml
+launcher.json
+jogo_selecionado.txt

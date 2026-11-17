@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>tesoura_vilao.ico</ApplicationIcon>
+    <AssemblyName>ClockTower_PC_Enhanced</AssemblyName>
+    <RootNamespace>ClockTowerVeladeLibra</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="tesoura_vilao.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="tesoura_vilao.ico" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
