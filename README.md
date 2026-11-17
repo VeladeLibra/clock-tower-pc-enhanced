@@ -3,6 +3,9 @@
 **Launcher independente e não oficial para Windows** desenvolvido no projeto Clock Tower PC Enhanced de VeladeLibra. Esta é a **versão 1.8.1 do launcher único**.
 
 > **O jogo original NÃO está incluído.** Este repositório contém o código-fonte do launcher, recursos visuais do projeto e documentação. Não disponibiliza ISO, BIN/CUE, BIOS, arquivos de jogos comerciais ou binários recompilados do jogo.
+<img width="315" height="315" alt="WhatsApp Image 2026-11-11 at 10 48 41" src="https://github.com/user-attachments/assets/7ddf2f32-7d88-4bbf-887f-d732ef79d4ee" />
+<img width="1292" height="870" alt="WhatsApp Image 2026-11-11 at 10 53 00" src="https://github.com/user-attachments/assets/2deb1667-6e4c-42b0-ab0b-8e2f4e23fc98" />
+
 
 ## Sobre o projeto
 
