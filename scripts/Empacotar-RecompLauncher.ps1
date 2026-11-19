@@ -34,7 +34,7 @@ $zip = Join-Path $saidaAbs $nome
 $temp = Join-Path ([IO.Path]::GetTempPath()) ("ct-recomplauncher-" + [guid]::NewGuid().ToString("N"))
 try {
     New-Item -ItemType Directory -Path $temp -Force | Out-Null
-    Copy-Item -LiteralPath (Join-Path $origem "*") -Destination $temp -Recurse -Force -ErrorAction Stop
+    Get-ChildItem -LiteralPath $origem -Force | Copy-Item -Destination $temp -Recurse -Force -ErrorAction Stop
     Copy-Item -LiteralPath $manifesto -Destination (Join-Path $temp "recomplauncher.json") -Force
     if (Test-Path $zip) { Remove-Item -LiteralPath $zip -Force }
     Compress-Archive -Path (Join-Path $temp "*") -DestinationPath $zip -CompressionLevel Optimal
