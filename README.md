@@ -1,5 +1,10 @@
 # Clock Tower PC Enhanced — VeladeLibra
 
+<a href="https://recomplauncher.com"><picture><source media="(prefers-color-scheme: dark)" srcset="https://recomplauncher.com/assets/press/launcher/badge-light.svg"><img alt="Get it on RecompLauncher" src="https://recomplauncher.com/assets/press/launcher/badge-dark.svg" height="48"></picture></a>
+
+> **Integração inicial com RecompLauncher em preparação.** O manifesto e o empacotador estão no repositório, mas a integração só será instalável quando uma GitHub Release incluir um ZIP Windows-x64 completo, com o launcher e o runtime recompilado compatível, sem o disco original.
+
+
 **Launcher independente e não oficial para Windows** desenvolvido no projeto Clock Tower PC Enhanced de VeladeLibra. Esta é a **versão 1.8.1 do launcher único**.
 
 > **O jogo original NÃO está incluído.** Este repositório contém o código-fonte do launcher, recursos visuais do projeto e documentação. Não disponibiliza ISO, BIN/CUE, BIOS, arquivos de jogos comerciais ou binários recompilados do jogo.
@@ -54,3 +59,19 @@ A tradução do jogo possui seu próprio repositório: [clock-tower-ps1-ptbr](ht
 Ao abrir uma Issue, descreva o sistema Windows, o comportamento e o erro, **sem anexar ISO/BIN, BIOS ou arquivos comerciais do jogo**.
 
 **Criado por VeladeLibra.** *Clock Tower* pertence aos seus respectivos titulares. Projeto de fã não oficial, sem afiliação ou endosso.
+
+## Suporte ao RecompLauncher (integração inicial)
+
+O arquivo [`recomplauncher.json`](recomplauncher.json) configura o RecompLauncher para iniciar `ClockTower_PC_Enhanced.exe` e editar as preferências já existentes em `%APPDATA%\\ClockTowerVeladeLibra\\launcher.json`: idioma (`English` / `Português (Brasil)`) e modo gráfico (clássico / HD 2x). O mod PT-BR continua sendo opcional e precisa estar instalado para afetar o jogo.
+
+**Limitação importante:** este repositório publica apenas o código-fonte do launcher; ele **não** inclui `ClockTowerOriginal_Recompiled.exe` nem converte automaticamente uma imagem de disco. Por isso ainda não existe a experiência de Easy Setup (selecionar ISO/CUE, preparar o jogo e jogar), nem uma release instalável do RecompLauncher verificada. Não há hashes CRC32 publicados sem verificação.
+
+Para criar um ZIP compatível a partir de uma **pasta de distribuição já completa** (sem ISO, CUE ou assets comerciais):
+
+```powershell
+.\\scripts\\Empacotar-RecompLauncher.ps1 -PastaPublicada "C:\\ClockTower-Publicado" -Versao "v1.8.2" -Saida ".\\dist"
+```
+
+A pasta deve conter `ClockTower_PC_Enhanced.exe` na raiz e `game\\ClockTowerOriginal_Recompiled.exe` ou `ClockTowerOriginal_Recompiled.exe` no pacote. O script coloca o manifesto na raiz do ZIP e verifica as entradas essenciais. Anexe o ZIP `ClockTower-PC-Enhanced-v1.8.2-Windows-x64.zip` a uma **nova Release** do GitHub; colocar apenas o JSON no branch principal não basta para o verificador do site. O instalador tradicional `.exe` pode continuar como asset separado.
+
+Os parâmetros do SDK constam no [guia oficial do RecompLauncher](https://recomplauncher.com/sdk-files/recomplauncher-agent.md). A integração não altera gameplay, saves, gráficos ou formatos internos.
