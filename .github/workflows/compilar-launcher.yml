@@ -9,6 +9,8 @@ on:
   pull_request:
     paths:
       - 'LauncherUnico/**'
+      - 'recomplauncher.json'
+      - 'scripts/validate_recomplauncher.py'
       - '.github/workflows/compilar-launcher.yml'
 
 jobs:
