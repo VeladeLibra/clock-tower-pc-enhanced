@@ -45,6 +45,19 @@ try {
         if ("recomplauncher.json" -notin $nomes -or "ClockTower_PC_Enhanced.exe" -notin $nomes) {
             throw "ZIP nao contem launcher e manifesto na raiz."
         }
+        if ("game/ClockTowerOriginal_Recompiled.exe" -notin $nomes -and
+            "ClockTowerOriginal_Recompiled.exe" -notin $nomes) {
+            throw "ZIP nao contem runtime recompilado na pasta esperada."
+        }
+        $manifestEntry = $arq.GetEntry("recomplauncher.json")
+        $reader = [IO.StreamReader]::new($manifestEntry.Open())
+        try {
+            $manifestNoZip = $reader.ReadToEnd() | ConvertFrom-Json
+            if ($manifestNoZip.repo -ne "VeladeLibra/clock-tower-pc-enhanced" -or
+                "ClockTower_PC_Enhanced.exe" -notin @($manifestNoZip.start.program)) {
+                throw "Manifesto dentro do ZIP nao inicia este launcher."
+            }
+        } finally { $reader.Dispose() }
     } finally { $arq.Dispose() }
     Write-Host "Pacote gerado: $zip" -ForegroundColor Green
     Write-Host "Publique o ZIP nos assets de uma nova GitHub Release."
