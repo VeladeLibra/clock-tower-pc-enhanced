@@ -3,6 +3,8 @@ on:
   push:
     paths:
       - 'LauncherUnico/**'
+      - 'recomplauncher.json'
+      - 'scripts/validate_recomplauncher.py'
       - '.github/workflows/compilar-launcher.yml'
   pull_request:
     paths:
@@ -17,5 +19,12 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validar manifesto do RecompLauncher com schema oficial
+        run: |
+          python -m pip install "jsonschema>=4,<5"
+          python scripts/validate_recomplauncher.py
       - name: Compilar fonte do launcher
         run: dotnet build LauncherUnico/ClockTower_PC_Enhanced.csproj -c Release
