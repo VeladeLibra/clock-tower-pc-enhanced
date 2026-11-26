@@ -1,66 +1,31 @@
 {
-  "$schema": "https://recomplauncher.com/schema/recomplauncher.json",
-  "format": 1,
-  "name": "Clock Tower PC Enhanced — VeladeLibra",
-  "repo": "VeladeLibra/clock-tower-pc-enhanced",
-  "start": {
-    "program": [
-      "ClockTower_PC_Enhanced.exe"
-    ]
-  },
-  "config": [
-    {
-      "id": "launcher",
-      "format": "json",
-      "file": "{config}/ClockTowerVeladeLibra/launcher.json"
-    }
-  ],
-  "settings": [
-    {
-      "id": "language",
-      "label": "Idioma",
-      "help": "Escolhe o idioma no launcher; PT-BR requer o mod compatível instalado.",
-      "in": "launcher",
-      "choices": [
-        {
-          "label": "English",
-          "set": {
-            "Language": "en"
-          }
-        },
-        {
-          "label": "Português (Brasil)",
-          "set": {
-            "Language": "pt-br"
-          }
-        }
-      ],
-      "defaults": {
-        "Language": "en"
-      }
-    },
-    {
-      "id": "graphics",
-      "label": "Modo gráfico",
-      "help": "Alterna entre o modo clássico e a preferência HD do launcher; HD pode depender de mods.",
-      "in": "launcher",
-      "choices": [
-        {
-          "label": "Clássico",
-          "set": {
-            "Graphics": "classic"
-          }
-        },
-        {
-          "label": "HD 2x",
-          "set": {
-            "Graphics": "hd"
-          }
-        }
-      ],
-      "defaults": {
-        "Graphics": "hd"
-      }
-    }
-  ]
+    "$schema":  "https://recomplauncher.com/schema/recomplauncher.json",
+    "format":  1,
+    "name":  "Clock Tower PC Enhanced - VeladeLibra",
+    "repo":  "VeladeLibra/clock-tower-pc-enhanced",
+    "inputs":  [
+                   {
+                       "label":  "Clock Tower (USA) SLUS-00539 - select CUE with BIN next to it",
+                       "id":  "game",
+                       "formats":  [
+                                       {
+                                           "type":  "file",
+                                           "extensions":  [
+                                                              "cue"
+                                                          ]
+                                       }
+                                   ],
+                       "role":  "game"
+                   }
+               ],
+    "start":  {
+                  "args":  [
+                               "--disc",
+                               "{input:game}",
+                               "--no-launcher"
+                           ],
+                  "program":  [
+                                  "game/ClockTowerOriginal_Recompiled.exe"
+                              ]
+              }
 }
