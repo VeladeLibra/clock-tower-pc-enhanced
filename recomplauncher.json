@@ -21,11 +21,13 @@
     "start":  {
                   "args":  [
                                "--disc",
-                               "{input:game}",
-                               "--no-launcher"
+                               "{input:game}"
                            ],
                   "program":  [
-                                  "game/ClockTowerOriginal_Recompiled.exe"
-                              ]
+                                  "ClockTower_PC_Enhanced_Launcher.exe"
+                              ],
+                  "env":  {
+                              "PSX_INTERNAL_RESOLUTION":  "2x"
+                          }
               }
 }
